@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Sistema de Controle de Ponto - Design System Corporativo
+   Cores: Azul corporativo, Verde sucesso, Vermelho atenção
+   Estilo: Profissional, limpo e moderno
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    /* Cores principais - Azul Corporativo */
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -17,9 +19,11 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* Azul corporativo principal */
+    --primary: 220 70% 25%;
     --primary-foreground: 210 40% 98%;
 
+    /* Cinza neutro para secundário */
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
@@ -29,44 +33,58 @@ All colors MUST be HSL.
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Vermelho para ações destrutivas/atenção */
+    --destructive: 0 72% 51%;
     --destructive-foreground: 210 40% 98%;
+
+    /* Verde para sucesso */
+    --success: 145 63% 42%;
+    --success-foreground: 210 40% 98%;
+
+    /* Amarelo para avisos */
+    --warning: 38 92% 50%;
+    --warning-foreground: 222.2 84% 4.9%;
+
+    /* Info - azul claro */
+    --info: 199 89% 48%;
+    --info-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 220 70% 25%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Sidebar */
+    --sidebar-background: 220 70% 20%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 40% 98%;
+    --sidebar-primary-foreground: 220 70% 20%;
+    --sidebar-accent: 220 60% 30%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 60% 30%;
+    --sidebar-ring: 210 40% 98%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Chart colors */
+    --chart-1: 220 70% 25%;
+    --chart-2: 145 63% 42%;
+    --chart-3: 199 89% 48%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 72% 51%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 220 70% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 220 70% 10%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-foreground: 220 70% 20%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -77,20 +95,30 @@ All colors MUST be HSL.
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 50%;
     --destructive-foreground: 210 40% 98%;
+
+    --success: 145 63% 42%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 222.2 84% 4.9%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --sidebar-background: 220 70% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 40% 98%;
+    --sidebar-primary-foreground: 220 70% 8%;
+    --sidebar-accent: 220 60% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 60% 15%;
+    --sidebar-ring: 210 40% 98%;
   }
 }
 
@@ -100,6 +128,124 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Button variants for time tracking */
+  .btn-entrada {
+    @apply bg-success text-success-foreground hover:bg-success/90 shadow-lg shadow-success/25 transition-all duration-200 hover:scale-105;
+  }
+
+  .btn-saida {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-lg shadow-destructive/25 transition-all duration-200 hover:scale-105;
+  }
+
+  /* Status badges */
+  .status-presente {
+    @apply bg-success/10 text-success border-success/20;
+  }
+
+  .status-remoto {
+    @apply bg-info/10 text-info border-info/20;
+  }
+
+  .status-ausente {
+    @apply bg-muted text-muted-foreground border-muted;
+  }
+
+  .status-atrasado {
+    @apply bg-warning/10 text-warning border-warning/20;
+  }
+
+  .status-pendente {
+    @apply bg-warning/10 text-warning border-warning/20;
+  }
+
+  .status-aprovado {
+    @apply bg-success/10 text-success border-success/20;
+  }
+
+  .status-rejeitado {
+    @apply bg-destructive/10 text-destructive border-destructive/20;
+  }
+
+  /* Card styles */
+  .card-corporate {
+    @apply bg-card rounded-lg border shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .card-stat {
+    @apply bg-card rounded-lg border p-6 hover:shadow-md transition-all duration-200;
+  }
+
+  /* Sidebar menu item */
+  .sidebar-item {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-foreground;
+  }
+
+  .sidebar-item-active {
+    @apply bg-sidebar-accent text-sidebar-foreground font-medium;
+  }
+
+  /* Time display */
+  .time-display {
+    @apply font-mono text-4xl font-bold tracking-tight;
+  }
+
+  /* Pulse animation for active status */
+  .pulse-active {
+    @apply animate-pulse;
+  }
+
+  /* Glass effect for overlays */
+  .glass {
+    @apply bg-background/80 backdrop-blur-sm;
+  }
+}
+
+@layer utilities {
+  /* Gradient backgrounds */
+  .gradient-corporate {
+    background: linear-gradient(135deg, hsl(220 70% 25%) 0%, hsl(220 70% 35%) 100%);
+  }
+
+  .gradient-success {
+    background: linear-gradient(135deg, hsl(145 63% 42%) 0%, hsl(145 63% 52%) 100%);
+  }
+
+  .gradient-danger {
+    background: linear-gradient(135deg, hsl(0 72% 51%) 0%, hsl(0 72% 61%) 100%);
+  }
+
+  /* Text gradients */
+  .text-gradient-corporate {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70;
+  }
+
+  /* Smooth scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
   }
 }
